@@ -876,3 +876,112 @@ DEPRECATION WARNING: `#timestamp` was called without specifying an option for `n
   [1m[35m (16.3ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (17.2ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (11.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (13.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111119180638')
+  [1m[36m (13.4ms)[0m  [1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "rating" varchar, "description" text, "release_date" datetime, "created_at" datetime, "updated_at" datetime, "director" varchar) [0m
+  [1m[35m (13.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (11.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (9.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160504171721')
+  [1m[36m (11.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111119180638')[0m
+
+
+Started GET "/assets/rails.png" for 42.114.169.4 at 2016-05-04 17:30:31 +0000
+
+
+Started GET "/movies" for 42.114.169.4 at 2016-05-04 17:30:44 +0000
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (27.2ms)
+Completed 200 OK in 265ms (Views: 183.3ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:44 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:44 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:44 +0000
+
+
+Started GET "/assets/application.self.css?body=1" for 42.114.169.4 at 2016-05-04 17:30:44 +0000
+
+
+Started GET "/movies?utf8=%E2%9C%93&ratings%5BG%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BNC-17%5D=1&ratings%5BR%5D=1&commit=Refresh" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "ratings"=>{"G"=>"1", "PG"=>"1", "PG-13"=>"1", "NC-17"=>"1", "R"=>"1"}, "commit"=>"Refresh"}
+Redirected to https://ttt-tainguyenleader.c9users.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')
+  Rendered movies/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:48 +0000
+
+
+Started GET "/movies?utf8=%E2%9C%93&commit=Refresh" for 42.114.169.4 at 2016-05-04 17:30:54 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"utf8"=>"✓", "commit"=>"Refresh"}
+Redirected to https://ttt-tainguyenleader.c9users.io/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/movies?ratings%5BG%5D=1&ratings%5BNC-17%5D=1&ratings%5BPG%5D=1&ratings%5BPG-13%5D=1&ratings%5BR%5D=1" for 42.114.169.4 at 2016-05-04 17:30:54 +0000
+Processing by MoviesController#index as HTML
+  Parameters: {"ratings"=>{"G"=>"1", "NC-17"=>"1", "PG"=>"1", "PG-13"=>"1", "R"=>"1"}}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'NC-17', 'PG', 'PG-13', 'R')[0m
+  Rendered movies/index.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 42.114.169.4 at 2016-05-04 17:30:55 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:55 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:55 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:30:55 +0000
+
+
+Started GET "/movies/new" for 42.114.169.4 at 2016-05-04 17:31:01 +0000
+Processing by MoviesController#new as HTML
+  Rendered movies/new.html.haml within layouts/application (25.2ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self.css?body=1" for 42.114.169.4 at 2016-05-04 17:31:02 +0000
+
+
+Started GET "/assets/jquery.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:31:02 +0000
+
+
+Started GET "/assets/jquery_ujs.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:31:02 +0000
+
+
+Started GET "/assets/application.self.js?body=1" for 42.114.169.4 at 2016-05-04 17:31:02 +0000
